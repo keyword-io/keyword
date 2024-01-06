@@ -11,7 +11,7 @@ Make sure you have the following dependencies installed before setting up your d
 - [Git](https://git-scm.com/)
 - [Node.js `v20.x`](https://nodejs.org/dist/v20.10.0/)
 - [Pnpm](https://pnpm.io)
-- [docker & docker compose](https://www.docker.com/get-started/)
+- [Docker & Docker compose](https://www.docker.com/get-started/)
 
 #### Build Keyword
 
