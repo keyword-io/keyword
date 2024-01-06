@@ -1,4 +1,7 @@
-name: CI
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Keyword CI
 
 on:
   push:
@@ -7,36 +10,46 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  build:
+  cache-and-install:
     name: Build and Test
-    timeout-minutes: 30
     runs-on: ubuntu-latest
-    # To use Remote Caching, uncomment the next lines and follow the steps below.
+    timeout-minutes: 30
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
     steps:
-      - name: Check out code
+      - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
 
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 8.14.0
-
-      - name: Setup Node.js environment
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20.10.0
-          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8.14.0
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build
-        run: pnpm build
-
-      - name: Test
-        run: pnpm test
+      - name: Turbo run prepublish
+        run: pnpm turbo run prepublish
