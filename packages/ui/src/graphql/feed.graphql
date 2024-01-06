@@ -1,0 +1,16 @@
+query getFeedsList($where: FeedWhereInput) {
+  feeds(where: $where) {
+    id
+    title
+    content
+  }
+}
+
+query getFeedOne($where: FeedWhereUniqueInput!) {
+  feed(where: $where) {
+    id
+    title
+    content
+    create_time
+  }
+}
