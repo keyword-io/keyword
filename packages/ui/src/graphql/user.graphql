@@ -1,0 +1,7 @@
+query getUserList($where: UserWhereInput) {
+  users(where: $where) {
+    id
+    name
+    email
+  }
+}

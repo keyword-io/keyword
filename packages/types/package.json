@@ -1,0 +1,16 @@
+{
+  "name": "@keyword/types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "src/index.ts",
+  "typings": "lib/index.d.js",
+  "scripts": {
+    "build": "tsc -b .",
+    "prepublish": "npm run build",
+    "type-check": "NODE_OPTIONS=--max-old-space-size=4096 tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

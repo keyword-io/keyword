@@ -1,0 +1,19 @@
+{
+  "name": "@keyword/logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "src/index.ts",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc -b .",
+    "type-check": "NODE_OPTIONS=--max-old-space-size=4096 tsc --noEmit",
+    "prepublish": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pino": "^8.17.2"
+  }
+}

@@ -1,0 +1,31 @@
+type User {
+  id: ID!
+  name: String!
+  email: String
+  create_time: DateTime!
+  update_time: DateTime!
+}
+
+input UserWhereInput {
+  id: ID
+  name: String
+  email: String
+}
+
+input UserWhereUniqueInput {
+  id: ID!
+}
+
+input UserCreateInput {
+  name: String!
+  email: String
+}
+
+type Query {
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput): [User!]!
+}
+
+type Mutation {
+  createUser(data: UserCreateInput!): User!
+}

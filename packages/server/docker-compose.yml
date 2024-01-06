@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  keyword-postgres:
+    image: postgres:16.1
+    restart: always
+    command: postgres -c wal_level=logical
+    environment:
+      POSTGRES_USER: keyword
+      POSTGRES_PASSWORD: keyword
+      POSTGRES_DB: keyword
+    volumes:
+      - keyword-postgres:/var/lib/postgresql/data
+    ports:
+      - '15432:5432'
+volumes:
+  keyword-postgres: ~

@@ -1,0 +1,33 @@
+type Feed {
+  id: ID!
+  title: String!
+  content: String!
+  create_time: DateTime!
+  update_time: DateTime!
+}
+
+input FeedWhereInput {
+  id: ID
+  title: String
+  content: String
+  create_time: DateTime
+  update_time: DateTime
+}
+
+input FeedWhereUniqueInput {
+  id: ID!
+}
+
+input FeedCreateInput {
+  title: String!
+  content: String!
+}
+
+type Query {
+  feed(where: FeedWhereUniqueInput!): Feed
+  feeds(where: FeedWhereInput): [Feed!]!
+}
+
+type Mutation {
+  createFeed(data: FeedCreateInput!): Feed
+}

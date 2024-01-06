@@ -1,0 +1,28 @@
+{
+  "name": "@keyword/schema",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/types.js",
+  "module": "generated/types.ts",
+  "typings": "lib/types.d.ts",
+  "scripts": {
+    "build": "tsc -b .",
+    "prepublish": "npm run build",
+    "generate": "graphql-codegen -c config/codegen.ts",
+    "type-check": "NODE_OPTIONS=--max-old-space-size=4096 tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@graphql-codegen/add": "^5.0.0",
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/schema-ast": "^4.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-resolvers": "^4.0.1"
+  },
+  "dependencies": {
+    "@keyword/prisma-client": "workspace:^",
+    "graphql": "^16.8.1"
+  }
+}

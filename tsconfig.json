@@ -1,0 +1,17 @@
+{
+  "extends": "./config/tsconfig.base.json",
+  "references": [
+    {
+      "path": "./packages/prisma-client"
+    },
+    {
+      "path": "./packages/schema"
+    },
+    {
+      "path": "./packages/server"
+    },
+    {
+      "path": "./packages/ui"
+    }
+  ]
+}

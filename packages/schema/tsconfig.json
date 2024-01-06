@@ -1,0 +1,10 @@
+{
+  "extends": "../../config/tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "generated",
+    "outDir": "lib",
+    "target": "es2020",
+    "composite": true
+  },
+  "include": ["generated/**/*.ts", "generated/**/*.graphql"]
+}

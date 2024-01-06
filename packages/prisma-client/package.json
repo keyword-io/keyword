@@ -1,0 +1,28 @@
+{
+  "name": "@keyword/prisma-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "src/index.ts",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc -b .",
+    "prisma": "prisma",
+    "type-check": "NODE_OPTIONS=--max-old-space-size=4096 tsc --noEmit",
+    "migrate-dev": "npm run prisma migrate dev --name development",
+    "migrate-deploy": "npm run prisma migrate deploy",
+    "pull": "npm run prisma db pull --force",
+    "generate": "npm run prisma generate",
+    "prepublish": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.7.1",
+    "@keyword/logger": "workspace:^"
+  },
+  "devDependencies": {
+    "prisma": "^5.7.1"
+  }
+}
