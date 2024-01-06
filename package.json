@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "turbo": "turbo --api=\"http://43.136.118.143:7788\" --token=\"3910157d-5a55-4297-a211-2d8fc5e39e4b\""
+    "turbo": "turbo"
   },
   "keywords": [],
   "author": "",
