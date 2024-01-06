@@ -8,7 +8,9 @@
   "scripts": {
     "build": "tsc -b .",
     "prepublish": "npm run build",
-    "type-check": "NODE_OPTIONS=--max-old-space-size=4096 tsc --noEmit"
+    "type-check": "NODE_OPTIONS=--max-old-space-size=4096 tsc --noEmit",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",

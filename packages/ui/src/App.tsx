@@ -1,3 +1,4 @@
+import React from 'react';
 import Provider from './Provider.tsx';
 import FeedList from '@/pages/Feed/FeedList.tsx';
 

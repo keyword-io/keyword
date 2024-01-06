@@ -83,3 +83,6 @@ tsconfig.tsbuildinfo
 
 ### IDE
 .idea
+
+### test coverage
+coverage

@@ -16,6 +16,8 @@
   },
   "scripts": {
     "build": "tsc -b .",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "type-check": "NODE_OPTIONS=--max-old-space-size=4096 tsc --noEmit",
     "prepublish": "npm run build"
   },

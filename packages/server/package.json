@@ -8,7 +8,9 @@
     "start:emit": "tsx watch src/index.ts",
     "type-check": "NODE_OPTIONS=--max-old-space-size=4096 tsc --noEmit",
     "docker-compose:up": "docker compose up -d",
-    "docker-compose:down": "docker compose down"
+    "docker-compose:down": "docker compose down",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",

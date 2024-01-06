@@ -1,5 +1,5 @@
 module.exports = {
-  ...require('../../config/jest.config'),
+  ...require('../../config/jest.config.base'),
   coverageThreshold: {
     global: {
       branches: 100,

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { client } from './graphql/client';
 import { ApolloProvider } from '@apollo/client';
-import { getDefaultLanguage } from './i18n/index';
+import { getDefaultLanguage } from './i18n';
 import { useLocalStorage } from 'react-use';
 import { useTranslation } from 'react-i18next';
 
