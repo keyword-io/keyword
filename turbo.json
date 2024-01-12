@@ -2,24 +2,25 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "generate": {
-      "outputs": ["lib/**"],
+      "outputs": ["src/**/generated/**"],
       "dependsOn": [
-        "^generate"
+        "^generate",
+        "^build"
       ]
     },
     "build": {
       "outputs": ["lib/**"],
       "dependsOn": [
         "^build",
-        "^generate"
+        "generate"
       ]
     },
     "type-check": {},
     "prepublish": {
       "outputs": ["lib/**"],
       "dependsOn": [
-        "^prepublish",
-        "^generate"
+        "generate",
+        "^prepublish"
       ]
     }
   }

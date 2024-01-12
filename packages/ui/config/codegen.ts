@@ -1,7 +1,8 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
+const schema = require.resolve('@keyword/schema/generated/default.graphql');
 
 const config: CodegenConfig = {
-  schema: '../schema/generated/default.graphql',
+  schema: schema,
   documents: './src/graphql/*.graphql',
   generates: {
     './src/generated/react-hooks.ts': {
