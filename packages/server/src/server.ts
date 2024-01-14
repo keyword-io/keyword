@@ -14,8 +14,12 @@ import {
   JSONDefinition,
   JSONResolver,
 } from 'graphql-scalars';
+import * as fs from 'fs';
 
-const typeDefs = require.resolve('@keyword/schema/generated/default.graphql');
+const typeDefs = fs.readFileSync(
+  require.resolve('@keyword/schema/generated/default.graphql'),
+  'utf-8'
+);
 
 const server = new ApolloServer<ApolloServerContext>({
   typeDefs: [
