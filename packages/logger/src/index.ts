@@ -15,7 +15,7 @@ export enum LoggerType {
 
 class Logger {
   private logger = pino({
-    timestamp: () => `, "time": "${new Date(Date.now()).toUTCString()}"`,
+    timestamp: () => `, "time": "${new Date(Date.now()).toISOString()}"`,
   });
 
   constructor(private type: LoggerType = LoggerType.Default) {}
@@ -33,7 +33,7 @@ class Logger {
   }
 
   public error(message: string) {
-    this.logger.error({ level: LoggerLevel.Info, type: this.type, message });
+    this.logger.error({ level: LoggerLevel.Error, type: this.type, message });
   }
 }
 
